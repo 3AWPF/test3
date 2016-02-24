@@ -11,6 +11,7 @@
 	<style>
 		body{margin: 0 0; background-color:black; color:white;}
 		h3{font-family: 'Oswald', sans-serif;}
+		h4{font-family: 'Oswald', sans-serif;}
 	</style>
 </head>
 
@@ -54,9 +55,12 @@
 
 
 <script type="text/ng-template" id="comment.html">
-<center><h3>Comments</h3></center>
+<center><h3>Replies</h3></center>
 <br>
 <center><a href = "#forum"><button class="btn btn-danger">Back</button></a></center>
+<br><br>
+<center><h4><q>{{comments[repon].mess}}</q></h4></center>
+
 	<form class="horizontal" role="form">
 	<div class="form-group">
 		<label class="control-label col-xs-2" for="reply">Message:</label>
