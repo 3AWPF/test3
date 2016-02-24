@@ -3,9 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="bootstrap.min.css">
+	  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-	<script src="angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 	<script src="forum.js"></script>
 	<style>
@@ -38,14 +38,15 @@
 				<th>Comment</th>
 				<th>Time</th>
 				<th>Likes</th>
+				<th>Replies</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="x in comments">
+			<tr ng-repeat="x in comments track by $index">
 				<td>{{x.mess}}</td>
 				<td>{{x.date}}</td>
-				<td><button type="button" class="btn btn-success" ng-click = "likeComment($index)">Likes:<span class = "badge">0</span></button></td>
-				<td><a href="#comment"><button type="button" class="btn btn-primary" ng-click="setRepon($index)">Comments</button></a></td>
+				<td><button type="button" class="btn btn-success" ng-click = "likeComment($index)">Likes:<span class = "badge">{{comments[$index].likes}}</span></button></td>
+				<td><a href="#comment"><button type="button" class="btn btn-primary" ng-click="setRepon($index)">Replies</button></a></td>
 			</tr>
 		</tbody>
 	</table>
@@ -75,7 +76,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="x in reps track by $index">
+			<tr ng-repeat="x in reps">
 				<td>{{x}}</td>
 			</tr>
 		</tbody>

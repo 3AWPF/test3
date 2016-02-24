@@ -38,22 +38,25 @@ app.controller("forum", function($scope) {
 			var data = {
 					'mess' : $scope.mess,
 					'date' : 	d,
-					'reply':['test comment']
+					'reply':['test comment'],
+					'likes': 0
 			};
 			comments.push(data);
 			}
 		};
 		
 		$scope.likeComment = function(ix){
-			var m = document.getElementsByTagName('button')[ix + 1].childNodes[1];
+			var m = document.getElementsByTagName('button')[2*ix + 1].childNodes[1];
 			var count = m.innerHTML;
 			count = parseInt(count);
 		    count++;
 			m.innerHTML = count;
+			comments[ix].likes = count;
 		};
 		
 		$scope.setRepon = function(i){
 			repon = i;
+			reps = comments[repon].reply;
 		};
 		
 		$scope.makeReply = function(){
